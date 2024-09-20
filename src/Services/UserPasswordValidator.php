@@ -10,27 +10,22 @@ class UserPasswordValidator implements PasswordValidator
 
     public function validate(string $password): bool
     {
-        try {
-            $this->checkLength($password);
-            $this->checkContainsOneNumberAtLeast($password);
-        } catch (Exception $e) {
+        if (
+            !$this->checkLength($password) ||
+            !$this->checkContainsOneNumberAtLeast($password)
+        ) {
             return false;
         }
-
         return true;
     }
 
-    private function checkLength(string $password): void
+    private function checkLength(string $password): bool
     {
-        if (strlen($password) <= self::PASSWORD_MIN_LENGTH) {
-            throw new Exception;
-        }
+        return strlen($password) >= self::PASSWORD_MIN_LENGTH;
     }
 
-    private function checkContainsOneNumberAtLeast(string $password): void
+    private function checkContainsOneNumberAtLeast(string $password): bool
     {
-        if (!preg_match('/\d+/', $password)) {
-            throw new Exception;
-        }
+        return preg_match('/\d+/', $password);
     }
 }

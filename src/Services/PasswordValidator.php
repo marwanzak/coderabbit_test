@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use Exception;
+use function lcfirst;
+
 class PasswordValidator
 {
     private const PASSWORD_MIN_LENGTH = 8;
@@ -22,8 +25,17 @@ class PasswordValidator
         return strlen($password) >= self::PASSWORD_MIN_LENGTH;
     }
 
-    private function checkContainsOneNumberAtLeast(string $password): bool
+    private   function checkContainsOneNumberAtLeast(string $password): bool
     {
         return preg_match('/\d+/', $password);
     }
+
+    public function createUsername(string $name): string{
+        return strtolower($name);
+    }
+
+
+
+
+
 }

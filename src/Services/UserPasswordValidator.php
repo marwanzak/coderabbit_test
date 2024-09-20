@@ -6,7 +6,7 @@ use Exception;
 
 class UserPasswordValidator implements PasswordValidator
 {
-    private const PASSWORD_MIN_LENGTH = 6;
+    private const PASSWORD_MIN_LENGTH = 8;
 
     public function validate(string $password): bool
     {

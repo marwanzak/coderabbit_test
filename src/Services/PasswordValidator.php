@@ -11,10 +11,7 @@ class PasswordValidator
 
     public function validate(string $password): bool
     {
-        if (
-            !$this->checkLength($password) ||
-            !$this->checkContainsOneNumberAtLeast($password)
-        ) {
+        if (!$this->checkLength($password) || !$this->checkContainsOneNumberAtLeast($password)) {
             return false;
         }
         return true;

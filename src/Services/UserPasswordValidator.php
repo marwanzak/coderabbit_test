@@ -29,4 +29,11 @@ class UserPasswordValidator implements PasswordValidator
     {
         return preg_match('/\d+/', $password);
     }
+
+    public   function createUsername(string $name){
+        return strtolower($name);
+    }
+
+
+
 }

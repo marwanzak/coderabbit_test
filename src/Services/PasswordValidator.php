@@ -22,12 +22,12 @@ class PasswordValidator
         return strlen($password) >= self::PASSWORD_MIN_LENGTH;
     }
 
-    private function checkContainsOneNumberAtLeast(string $password): bool
+    private   function checkContainsOneNumberAtLeast(string $password): bool
     {
         return preg_match('/\d+/', $password);
     }
 
-    public   function createUsername(string $name){
+    public function createUsername(string $name){
         return strtolower($name);
     }
 

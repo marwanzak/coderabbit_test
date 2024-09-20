@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Exception;
+use function cal_days_in_month;
 
 class UserPasswordValidator implements PasswordValidator
 {
